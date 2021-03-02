@@ -3,6 +3,9 @@ version: "3.4"
 services:
   ms-reservations:
     container_name: ms-reservations
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ms-reservations.rule=PathPrefix('/reservations')"
     build:
       context: .
     restart: always
